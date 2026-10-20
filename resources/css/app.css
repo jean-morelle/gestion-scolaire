@@ -1,0 +1,72 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../../app/Support/**/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+    --color-marque-50: #eef4ff;
+    --color-marque-100: #dbe6fe;
+    --color-marque-200: #bfd3fe;
+    --color-marque-500: #3b6cf6;
+    --color-marque-600: #2553e6;
+    --color-marque-700: #1d41c9;
+    --color-marque-800: #1e379f;
+    --color-marque-900: #1c337c;
+}
+
+@layer base {
+    [x-cloak] {
+        display: none !important;
+    }
+
+    body {
+        @apply bg-slate-50 text-slate-800 antialiased;
+    }
+}
+
+@layer components {
+    .champ {
+        @apply block w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 shadow-xs
+            placeholder:text-slate-400 focus:border-marque-500 focus:ring-2 focus:ring-marque-500/30 focus:outline-none
+            disabled:bg-slate-100 disabled:text-slate-500;
+    }
+
+    .champ-erreur {
+        @apply border-red-400 focus:border-red-500 focus:ring-red-500/30;
+    }
+
+    .tableau {
+        @apply min-w-full divide-y divide-slate-200 text-sm;
+    }
+
+    .tableau thead th {
+        @apply bg-slate-50 px-4 py-2.5 text-left text-xs font-semibold tracking-wide text-slate-500 uppercase;
+    }
+
+    .tableau tbody td {
+        @apply px-4 py-2.5 align-middle text-slate-700;
+    }
+
+    .tableau tbody tr {
+        @apply hover:bg-slate-50/70;
+    }
+
+    .lien {
+        @apply font-medium text-marque-700 hover:text-marque-900 hover:underline;
+    }
+}
+
+@media print {
+    .no-print {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+    }
+}
